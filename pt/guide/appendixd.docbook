@@ -20,10 +20,9 @@
     tiver interesse em colaborar na tradução, consulte
   </para>
 
-  <para>&untranslated;
-  </para>
+  <para>&untranslated;</para>
 <!--
-  <sect1 id="check_format_info">
+   <sect1 id="check_format_info">
     <title>Check Format Files (<filename>*.chk</filename>)</title>
 
     <sect2 id="check_format_overview">
@@ -762,13 +761,11 @@ Blocking_Chars</literallayout>
                   This type value tells &app; to print the check number at the specified
                   coordinates. The check number reflects the book option selection under
                   <menuchoice>
-                    <guimenu>File</guimenu><guimenuitem>Properties </guimenuitem>
+                    <guimenu>File</guimenu><guimenuitem>Properties</guimenuitem>
                   </menuchoice>
                   for number source (transaction number or anchor-split action - see
-                  <ulink type="help"
-                    url="help:gnucash-manual?num-action-book-option">Use
-                  Split Action Field for Number</ulink> in the Book Options section of the &app;
-                  Help Manual).
+                  <ulink url="&url-docs-C;manual/book-options.html#num-action-book-option">Use Split
+                  Action Field for Number</ulink> in the Book Options section of the &app; Manual).
                 </entry>
               </row>
 
@@ -812,14 +809,13 @@ Blocking_Chars</literallayout>
                   This type value tells &app; to print the split action field at the specified
                   coordinates. However, the printed field reflects the book option selection under
                   <menuchoice>
-                    <guimenu>File</guimenu><guimenuitem> Properties</guimenuitem>
+                    <guimenu>File</guimenu><guimenuitem>Properties</guimenuitem>
                   </menuchoice>
                   for number source (transaction number or anchor-split action - see
-                  <ulink
-                    type="help" url="help:gnucash-manual?num-action-book-option">
-                  Use Split Action Field for Number</ulink> in the Book Options section of the &app;
-                  Help Manual). If number source for the book is specified as anchor-split action,
-                  this field will instead print the transaction number field.
+                  <ulink url="&url-docs-C;manual/book-options.html#num-action-book-option">Use Split
+                  Action Field for Number</ulink> in the Book Options section of the &app; Manual).
+                  If number source for the book is specified as anchor-split action, this field will
+                  instead print the transaction number field.
                 </entry>
               </row>
 
