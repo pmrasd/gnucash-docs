@@ -24,7 +24,7 @@ Translators:
     provavelmente quererá seguir, para maximizar a utilidade das suas contas.
   </para>
 
-  <sect1 id="accts-concepts1">
+  <sect2 id="accts-concepts1">
     <title>Conceitos básicos de contabilidade</title>
 
     <para>Tal como foi dito no capítulo anterior, a contabilidade baseia-se em 5 tipos de contas:
@@ -72,7 +72,7 @@ Translators:
       </screenshot>
     </figure>
 
-    <sect2 id="accts-bsa2">
+    <sect3 id="accts-bsa2">
       <title>Contas do balanço</title>
 
       <para>As três chamadas <emphasis>Contas do balanço</emphasis> são <guilabel>Activo</guilabel>,
@@ -94,9 +94,9 @@ Translators:
         sobra depois de subtrair o seu passivo do seu activo. Pode ser imaginado como a parte do
         activo que está livre de dívidas.
       </para>
-    </sect2>
+    </sect3>
 
-    <sect2 id="accts-ie2">
+    <sect3 id="accts-ie2">
       <title>Contas de Receita e Despesa</title>
 
       <para>Estas duas <guilabel>contas de receita e despesa</guilabel> são usadas para aumentar ou diminuir o
@@ -119,16 +119,10 @@ Translators:
         os activos, se pagar a despesa com cartão de crédito ou com um empréstimo aumenta o
         passivo.
       </para>
-<!--
-  Translators:
-    Your language might have a generic term for 'income and expense'.
-    Then you should introduce it here in a separate paragraph 
-    and replace 'income and expense' by it in the latter sections of this book.
--->
-    </sect2>
-  </sect1>
+    </sect3>
+  </sect2>
 
-  <sect1 id="accts-types1">
+  <sect2 id="accts-types1">
     <title>Contas &app;</title>
 
     <para>Esta secção mostra como é que a definição de contas do &app; se ajusta aos cinco tipos básicos
@@ -158,7 +152,7 @@ Translators:
     <para>Estes tipos de conta do &app; são apresentados abaixo com mais detalhe.
     </para>
 
-    <sect2 id="accts-gc-bsa2">
+    <sect3 id="accts-gc-bsa2">
       <title>Contas de balanço</title>
 
       <para>A primeira conta de balanço que vamos examinar é <emphasis>Activo</emphasis>, que, como se lembra
@@ -201,6 +195,9 @@ Translators:
             cotação dos fundos. Os fundos representam a propriedade de acções numa variedade de
             investimentos e, tal como as acções, não oferecem garantias de valor investido.
           </para>
+          
+          <para>O &app; trata as contas de acções e de fundos da mesma forma.
+          </para>
         </listitem>
 
         <listitem>
@@ -230,6 +227,9 @@ Translators:
           <para><guilabel>Activo</guilabel> - não importa quão diversas sejam, o &app; gere muitas outras
             situações facilmente. A categoria <quote>Activo</quote> cobre todos os activos não
             listados acima.
+          </para>
+          
+          <para>O &app; trata as contas de dinheiro, à ordem e activos da mesma forma.
           </para>
 
           <para>Contas são repositórios de informação, usados para controlar ou registar o tipo de acções que
@@ -296,6 +296,10 @@ Translators:
             a médio e longo prazo, tais como um crédito à habitação ou uma compra de
             automóvel. Esta conta permite-lhe controlar quanto deve e quanto é que já pagou.
           </para>
+          
+          <para>O &app; trata as contas de cartão de crédito e passivo da mesma forma.
+          </para>
+          
         </listitem>
       </orderedlist>
 
@@ -332,9 +336,9 @@ Translators:
           ao seu <emphasis>valor líquido</emphasis>.
         </para>
       </note>
-    </sect2>
+    </sect3>
 
-    <sect2 id="accts-gc-ie2">
+    <sect3 id="accts-gc-ie2">
       <title>Contas de receita e despesa</title>
 
       <para><emphasis>Receita</emphasis> é o pagamento que recebe pelo seu tempo, por serviços prestados ou
@@ -413,10 +417,26 @@ Translators:
           </mediaobject>
         </screenshot>
       </figure>
-    </sect2>
-  </sect1>
+    </sect3>
+    
+    <sect3 id="accts-other-types">
+      <title>Outros tipos de conta</title>
 
-  <sect1 id="accts-examples1">
+      <para>Há ainda alguns tipos de conta especiais.
+      </para>
+
+      <para><emphasis>Câmbio</emphasis>  As transacções em diferentes moedas são divididas em contas de 
+            <quote>câmbio</quote> para que o saldo da transacção seja calculado em cada moeda, bem como 
+            no valor total. Consulte <xref linkend="chapter_currency" /> para mais informação.
+      </para>
+
+      <para><emphasis>Mercado cambial</emphasis> e <emphasis>linhas de crédito</emphasis> só são usadas na 
+            importação OFX, aparentemente para  para garantir a conformidade com a especificação.
+      </para>
+    </sect3>    
+  </sect2>
+
+  <sect2 id="accts-examples1">
     <title>Juntar as peças</title>
 
     <para>Vamos passar pelo processo de construir uma <emphasis>árvore de contas</emphasis> pessoal comum,
@@ -426,7 +446,7 @@ Translators:
       contabilísticos básicos. Isto é relativamente simples, vamos ver um exemplo.
     </para>
 
-    <sect2 id="accts-examples-situation2">
+    <sect3 id="accts-examples-situation2">
       <title>Exemplo simples</title>
 
       <para>Vamos assumir que tem no seu banco uma conta à ordem e uma conta poupança e que está empregado,
@@ -443,9 +463,9 @@ Translators:
         <guilabel>despesas</guilabel> na forma de comida, renda, electricidade, telefone e impostos
         sobre o ordenado (IRS, Segurança Social, Seguro).
       </para>
-    </sect2>
+    </sect3>
 
-    <sect2 id="accts-examples-toplevel2">
+    <sect3 id="accts-examples-toplevel2">
       <title>As contas básicas de topo</title>
 
       <para>Agora, tem de decidir como quer agrupar essas contas. Muito provavelmente, quererá os seus
@@ -548,9 +568,9 @@ Translators:
           </mediaobject>
         </screenshot>
       </figure>
-    </sect2>
+    </sect3>
 
-    <sect2 id="accts-examples-organization2">
+    <sect3 id="accts-examples-organization2">
       <title>Criar sub-contas</title>
 
       <para>Pode agora aumentar esta estrutura básica de alto nível inserindo sub-contas que realmente recebem
@@ -687,6 +707,6 @@ Translators:
         simples. Com esta estrutura básica no lugar, podemos agora começar a povoar as contas com
         transacções. O próximo capítulo cobre este assunto com grande detalhe.
       </para>
-    </sect2>
-  </sect1>
+    </sect3>
+  </sect2>
 </chapter>

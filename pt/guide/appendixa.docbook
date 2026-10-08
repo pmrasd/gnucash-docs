@@ -9,7 +9,7 @@
     Jon Lapham <lapham@extracta.com.br>
   Originally designed by Carol Champagne.
   Translators:
-    (translators put your name and email here)
+    Pedro Albuquerque <pmra@protonmail.com>
 -->
 <appendix id="appendixa">
   <title>Guia de migração</title>
@@ -24,12 +24,10 @@
 
     <para>Se está familiarizado com outros programas de finanças pessoais, já está habituado a controlar
       as suas receitas e despesas como categorias. Dado que o &app; é um sistema de dupla entrada
-      (veja a secção <xref linkend="basics-accounting1"/>
-<!--2.1-->
-      ), as receitas e despesas são controladas em contas. O conceito básico é o mesmo, mas a
-      estrutura de contas permite maior consistência com práticas empresariais comuns. Assim, se
-      é um utilizador empresarial assim como privado, o &app; torna fácil o controlo dos seus
-      negócios e das sua contas privadas.
+      (veja a secção <xref linkend="basics-accounting1"/>), as receitas e despesas são controladas em 
+      contas. O conceito básico é o mesmo, mas a estrutura de contas permite maior consistência com 
+      práticas empresariais comuns. Assim, se é um utilizador empresarial assim como privado, o &app; 
+      torna fácil o controlo dos seus negócios e das sua contas privadas.
     </para>
 
     <para>Contas de receita e despesa dão-lhe a mesma informação que obteria com categorias, mas também
@@ -44,36 +42,51 @@
       <trademark class="registered">Quicken</trademark> e programas semelhantes, as transacções
       requerem uma conta e uma categoria. No &app;, use um nome de conta de receita ou despesa onde
       normalmente usaria uma categoria noutros programas e o resultado deve ser o mesmo. Discute-se
-      a introdução de transacções com maior detalhe no capítulo <xref linkend="chapter_txns"/>
-<!--capítulo 4-->
-      .
+      a introdução de transacções com maior detalhe no <xref linkend="basics-transactions2" />.
     </para>
   </sect1>
 
-  <sect1 id="appendixa_qif1">
-    <title>Organização de ficheiros <acronym>QIF</acronym> (em discussão)</title>
+  <sect1 id="appendixa_import">
+    <title>Importar dados</title>
 
-    <para></para>
-  </sect1>
+    <para>Se pretender importar dados da sua aplicação anterior, deve distinguir entre dados financeiros
+      e outros dados. Provavelmente, a melhor forma de importar dados financeiros é o <quote>Quicken
+      Interchange Format</quote> <acronym>QIF</acronym>. Trata-se de um formato específico para dados financeiros,
+      que a maioria das aplicações financeiras destinadas ao sector privado reconhece e pode utilizar para exportação.
+    </para>
 
-  <sect1 id="appendixa_entercharge1">
-    <title>Problemas comuns de duplicação (em discussão)</title>
-
-    <para></para>
-  </sect1>
-
-  <sect1 id="appendixa_enterpay1">
-    <title>Verificar dados <acronym>QIF</acronym> (em discussão)</title>
-
-    <para></para>
-  </sect1>
+    <para>Para outros dados, sugerimos o formato <acronym>CSV</acronym> <quote>Comma Separated Value</quote>.
+    </para>
+  
+    <sect2 id="appendixa_qif1">
+      <title>Importar dados financeiros em ficheiros <acronym>QIF</acronym></title>
+  
+        <para>Veja <ulink url="&url-wp-en;Quicken_Interchange_Format" /> para mais detalhes.
+        </para>
+  
+        <para>Alguns utilizadores do &app; partilharam os seus conhecimentos sobre a melhor forma de o utilizar
+          na nossa <ulink url="&url-wiki-qif;"/>.
+        </para>
+  
+        <para>Para outros formatos e mais informações, consulte <xref linkend="chapter_importing"/>.
+        </para>
+    </sect2>
+    
+    <sect2 id="appendixa_business">
+        <title>Importar dados empresariais em ficheiros <acronym>CSV</acronym></title>
+  
+        <para>Se pretender importar clientes e fornecedores ou recibos e facturas, consulte
+          <xref linkend="ch_import_bus_data" />.
+        </para>
+    </sect2>
 
   <sect1 id="appendixa_xmlconvert1">
     <title>Converter ficheiro <acronym>XML</acronym> do &app;</title>
 
     <para>O ficheiro de dados <acronym>XML</acronym> do &app; pode ser transformado em praticamente qualquer
       formato (por exemplo, <acronym>QIF</acronym>, <acronym>CSV</acronym>...) com bastante
-      facilidade se se estiver familiarizado com <acronym>XSLT</acronym>. O ficheiro de dados do
+      facilidade se se estiver familiarizado com <quote>Extensible Stylesheet Language Transformations</quote>
+      <ulink url="&url-wp-en;XSLT"><acronym>XSLT</acronym></ulink>. O ficheiro de dados do
       &app; é um <acronym>XML</acronym> bem formado e pode ser lido por um processador
       <acronym>XSLT</acronym> com uma folha de estilos associada. Isto permite transformar o
       ficheiro em qualquer formato que possa ser desenhado, dispondo da folha de estilo apropriada.
@@ -127,14 +140,29 @@
 
       <listitem>
         <para>Crie uma folha de estilo <acronym>XSLT</acronym> contendo a transformação desejada, ou obtenha uma
-          já escrita (tanto quanto sabemos, não há nenhuma, mas estamos a trabalhar numa para
-          <acronym>CSV</acronym>).
+          já escrita.
         </para>
+        
+        <itemizedlist>
+          <title>Folhas de estilo XSLT contribuídas pelos utilizadores</title>
+
+          <listitem>
+            <para>no nosso repositório: <ulink url="&url-gh-gc-stable;contrib/xslt"/>
+            </para>
+          </listitem>
+
+          <listitem>
+            <para>na nossa wiki: <ulink url="&url-wiki-xslt;"/>
+            </para>
+          </listitem>
+        </itemizedlist>
+        
       </listitem>
 
       <listitem>
-        <para>Instale um processador <acronym>XSLT</acronym> tal como o <ulink url="&url-saxon;">Saxon</ulink> ou
-          o <ulink url="&url-xalan;">Xalan-J</ulink>. Qualquer processador normalizado serve,
+        <para>Instale um processador <acronym>XSLT</acronym>, tal como o Saxon (<ulink url="&url-wp-en;Saxon_XSLT" />)
+          ou o Xalan (<ulink url="&url-wp-en;Apache_Xalan" />). Qualquer
+          <ulink url="&url-wp-en;Category:XSLT_processors">processador normalizado</ulink> serve,
           realmente...
         </para>
       </listitem>
@@ -148,7 +176,7 @@
       <listitem>
         <para>Terá agora um ficheiro no formato de saída desejado. Uma pessoa empreendedora pode mesmo chegar a
           escrever uma folha de estilo para transformar o ficheiro de dados do &app; numa folha de
-          cálculo do OpenOffice (ou vice-versa, já agora). Coisas como <acronym>QIF</acronym>
+          cálculo do &app-aoo;/&app-lo; (ou vice-versa, já agora). Coisas como <acronym>QIF</acronym>
           deviam dar um bocadinho menos de trabalho.
         </para>
       </listitem>
