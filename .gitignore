@@ -4,3 +4,5 @@
 # If /your/ tools add files into the source tree, adjust /your/ "$XDG_CONFIG_HOME/git/ignore"
 # or "$GIT_DIR/info/exclude" as described at https://git-scm.com/docs/gitignore!
 
+
+pt/guide/temp.docbook

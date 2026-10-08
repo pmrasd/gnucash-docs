@@ -18,6 +18,7 @@
                (Pedro Albuquerque pmra@protonmail.com)
 -->
 <chapter id="chapter_basics">
+      xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>O básico</title>
 
   <para>Este capítulo introduz algumas bases para usar o &app;. Recomenda-se que o leia antes de começar a
@@ -105,9 +106,11 @@
         as outras? Primeiro, o capital próprio é definido pelo activo e pelo passivo. Ou seja, o
         seu valor líquido é calculado subtraindo o seu passivo do seu activo:
       </para>
-
-      <para><emphasis>Activo - Passivo = Capital próprio</emphasis>
-      </para>
+      
+      <equation id="accounting_equation_static">        
+        <title>A equação contabilística estática</title>
+        <mathphrase>Activo - Passivo = Capital próprio</mathphrase>
+      </equation>
 
       <para>Para além disto, pode aumentar o seu capital próprio com receitas e diminui-lo com despesas. Isto
         faz sentido, claro. Quando recebe o seu salário fica mais <quote>rico</quote> e quando paga
@@ -115,8 +118,10 @@
         conhecido como a equação contabilística:
       </para>
 
-      <para><emphasis>Activo - Passivo = Capital próprio + (Receita - Despesa)</emphasis>
-      </para>
+      <equation id="accounting_equation_dynamic">
+        <title>A equação contabilística dinâmica</title>
+        <mathphrase>Activo - Passivo = Capital próprio + (Receita - Despesa)</mathphrase>
+      </equation>
 
       <para>Esta equação tem de estar sempre equilibrada, uma condição que só pode ser satisfeita se
         inserir valores em múltiplas contas. Por exemplo, se receber dinheiro na forma de receita,
@@ -144,7 +149,120 @@
         </screenshot>
       </figure>
     </sect2>
+    
+     <sect2 id="basics-debits-credits">
+      <title>Débitos e créditos</title>
 
+      <para>A utilização de débitos e créditos em contabilidade e o seu efeito em diferentes tipos de contas 
+            costuma ser confusa quando se depara com estes conceitos pela primeira vez. A equação contabilística 
+            apresentada acima é a chave para compreender quais os tipos de contas que são debitadas ou creditadas 
+            e em que circunstâncias. Em primeiro lugar, precisamos de reorganizar um pouco a forma expandida, 
+            colocando os activos no lado esquerdo do sinal de igual e transpondo qualquer tipo de conta com sinal 
+            negativo para o outro lado, de modo a obter:
+      </para>
+
+      <equation id="accounting_equation_rearranged">
+        <title>A equação contabilística rearranjada</title>
+        <mathphrase>Activos + Despesas = Passivo + Capitais próprios + Receita</mathphrase>
+      </equation>
+
+      <para>Com a equação contabilística nesta forma, as contas do lado esquerdo do sinal de igual são
+            conhecidas como <emphasis>contas com saldo a débito</emphasis> na prática contabilística, ou seja, o
+            saldo positivo normal destas contas é aumentado por <emphasis>débito</emphasis> nas contas deste tipo. 
+            Por outro lado, os lançamentos a crédito nestas contas vão diminuir o saldo das contas deste tipo.
+      </para>
+
+      <para>Da mesma forma, os tipos de conta que se encontram do lado direito do sinal de igual são conhecidos 
+            como <emphasis>contas de saldo a crédito</emphasis>, ou seja, o saldo positivo normal destes tipos de conta é
+            aumentado por lançamentos <emphasis>a crédito</emphasis> nestas contas. Por sua vez, os lançamentos
+            a débito nestas contas vão reduzir o saldo da conta.
+      </para>
+
+      <table frame='all' id="basics-debits-credits-effect-tbl">
+        <title>Resumo do efeito dos débitos (Dr) e créditos (Cr) no saldo das contas dos 5 tipos de conta</title>
+
+        <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+          <colspec colname='c1'/>
+
+          <colspec colname='c2'/>
+
+          <colspec colname='c3'/>
+
+          <thead>
+            <row>
+              <entry>
+                Tipo de conta
+              </entry>
+
+              <entry namest="c2" nameend="c3" align ="center">
+                Efeito no saldo
+              </entry>
+            </row>
+
+            <row>
+              <entry></entry>
+
+              <entry>
+                Débito (Dr)
+              </entry>
+
+              <entry>
+                Crédito (Cr)
+              </entry>
+            </row>
+          </thead>
+
+          <tbody valign='middle'>
+            <row>
+              <entry>
+                Activos
+              </entry>
+
+              <entry morerows='1'>
+                Aumento
+              </entry>
+
+              <entry morerows='1'>
+                Diminuição
+              </entry>
+            </row>
+
+            <row>
+              <entry>
+                Despesas
+              </entry>
+            </row>
+
+            <row>
+              <entry>
+                Passivo
+              </entry>
+
+              <entry morerows='2'>
+                Diminuição
+              </entry>
+
+              <entry morerows='2'>
+                Aumento
+              </entry>
+            </row>
+
+            <row>
+              <entry>
+                Cap. próprio
+              </entry>
+            </row>
+
+            <row>
+              <entry>
+                Receita
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect2>
+    
     <sect2 id="basics-accountingdouble2">
       <title>Dupla entrada</title>
 
@@ -239,15 +357,15 @@
         </para>
       </note>
 
-      <para>Cópias de segurança e ficheiros de registo são gerados automaticamente pelo &app; quando
+      <para>Salvaguardas e ficheiros de registo são gerados automaticamente pelo &app; quando
         necessário. Este ficheiros são descritos em <xref linkend="basics-backup1"/>.
       </para>
     </sect2>
-<!-- basics-files2 -->
+
     <sect2 id="basics-accounts2">
       <title>Contas</title>
 
-      <para>Uma <firstterm>conta</firstterm> controla aquilo que possui, deve, gasta ou recebe. Cada ficheiro do
+      <para>Uma <glossterm linkend="gnc-gl_account">conta</glossterm> controla aquilo que possui, deve, gasta ou recebe. Cada ficheiro do
         &app; pode conter qualquer número de contas e cada conta pode conter muitas sub-contas até
         um número arbitrário de níveis. Esta simples funcionalidade dá ao &app; muito do seu
         poder de gestão das suas finanças, como verá mais adiante.
@@ -295,14 +413,201 @@
 <!-- basics-transactions2 -->
   </sect1>
 <!-- basics-entry1 -->
-  <sect1 id="basics-interface1">
-    <title>Ambiente de trabalho</title>
+  <sect1 id="basics-running-gnucash">
+    <title>Executar o &app;</title>
 
-    <para>A primeira vez que abre o &app;, verá o ecrã <guilabel>Boas vindas ao &app;!</guilabel>. A partir
-      daí, o &app; oferece outras ferramentas para ajudar a encontrar facilmente aquilo que
-      procura. Vamos espreitar alguns do ecrãs e diálogos mais comuns.
+    <para>O &app; pode ser executado a partir da sua entrada no menu.
     </para>
 
+    <para>Alternativamente, pode ser executado a partir da linha de comandos, escrevendo <command>gnucash</command>.
+    </para>
+
+    <para>Durante o arranque, o &app; mostra o ecrã inicial, onde são exibidas algumas informações sobre o programa
+      (número da versão, compilação, etc.) e sobre o processo de carregamento.
+    </para>
+    
+    <sect2 id="basics-welcome-to-gnucash">
+      <title>Boas-vindas ao &app;!</title>
+
+      <para>A primeira vez que abre o &app;, verá o ecrã <guilabel>Boas vindas ao &app;!</guilabel>. Este diálogo inclui três escolhas:
+      </para>
+    
+<!-- Recommend screen shot here of Welcome to GnuCash! dialog -->
+      <itemizedlist id="welcome-screen-options">
+        <listitem>
+          <para><guilabel>Criar um conjunto de contas</guilabel> - Executa o assistente de <guilabel>Nova hierarquia de 
+                contas</guilabel> (consulte <xref linkend="basics-acct-hierarchy"/>). Seleccione esta
+            opção se desejar assistência na criação do plano de contas.
+          </para>
+        </listitem>
+
+        <listitem>
+          <para><guilabel>Importar ficheiros QIF</guilabel> - Executa o assistente <guilabel>Importar ficheiros QIF</guilabel>
+            (consulte <xref linkend="importing-qif"/>). Seleccione esta opção se já tem ficheiros Quicken
+            (ficheiros <filename>.qif</filename>) e deseja importá-los para o &app;.
+          </para>
+        </listitem>
+
+        <listitem>
+          <para><guilabel>Abrir o tutorial para novo utilizador</guilabel> - Abre o Tutorial e guia de conceitos do &app;.
+            Seleccione esta opção se é estreante no &app; e em conceitos contabilísticos.
+          </para>
+        </listitem>
+      </itemizedlist>
+
+      <note>
+        <para>É possível aceder a cada um destes itens depois de sair deste ecrã, mas o diálogo
+          <guilabel>Boas-vindas ao &app;!</guilabel> pode não voltar a aparecer. Para criar um novo plano 
+          de contas, consulte <xref linkend="basics-acct-hierarchy" />. Para importar ficheiros QIF, consulte
+          <xref linkend="importing-qif" />.
+        </para>
+      </note>
+    </sect2>
+
+    <sect2 id="basics-acct-hierarchy">
+      <title>Novo plano de contas</title>
+
+      <para>O assistente <emphasis>Novo plano de contas</emphasis> ajuda a criar um conjunto de contas 
+            do &app;. Aparece se escolher <guibutton>Criar um novo plano de contas</guibutton>
+        no menu do diálogo <guilabel>Boas-vindas ao &app;!</guilabel>, ou quando escolhe
+        <menuchoice>
+          <shortcut>
+          <keycombo>
+            <keycap>Ctrl</keycap><keycap>N</keycap>
+          </keycombo>
+          </shortcut> <guimenu><accel>F</accel>icheiro</guimenu><guimenuitem><accel>N</accel>ovo
+          ficheiro</guimenuitem>
+        </menuchoice>
+        . Também pode utilizá-lo para adicionar uma secção de contas a um livro já existente a partir da
+        página <guilabel>Contas</guilabel> seleccionando
+        <menuchoice>
+          <guimenu><accel>A</accel>cção</guimenu><guimenuitem>Novo plano de contas…</guimenuitem>
+        </menuchoice>
+        .
+      </para>
+
+      <para>Este assistente guiá-lo-á ao longo do processo de criação de um <emphasis>plano de contas</emphasis>.
+        O assistente inclui várias etapas, que se encontram descritas abaixo.
+      </para>
+
+      <orderedlist>
+        <listitem>
+          <para>O primeiro ecrã descreve sucintamente o que este assistente faz.
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>A opção <guilabel>Novas opções do livro</guilabel> só aparece quando se cria um livro. Aqui pode 
+            definir vários atributos do livro. Esta página tem cinco separadores: Contas, Orçamento, Empresa, Contadores e Imposto.
+            Estes itens são explicados noutra secção do guia e podem ser alterados a qualquer momento a partir de
+            <menuchoice>
+              <shortcut>
+              <keycombo>
+                <keycap>Ctrl</keycap><keycap>Enter</keycap>
+              </keycombo>
+              </shortcut>
+              <guimenu><accel>F</accel>icheiro</guimenu><guimenuitem>Proprie<accel>d</accel>dades</guimenuitem>
+            </menuchoice>
+            .
+          </para>
+        </listitem>
+
+        <listitem>
+          <para><guilabel>Escolher moeda</guilabel> define a moeda da conta raiz oculta e a moeda predefinida
+            para novas contas. O valor predefinido sugerido baseia-se nas definições regionais do computador. 
+            Escolha-a com cuidado: não só define a moeda predefinida para a criação de novas contas, como também
+            é a moeda "principal" do livro-razão e torna-se a moeda predefinida para todos os preços de acções
+            e taxas de câmbio de moedas estrangeiras. Embora possa ser alterada executando novamente o assistente de
+            <guilabel>Novo plano de contas</guilabel> a partir do menu <guimenu>Acções</guimenu>, fazê-lo depois de 
+            ter criado transacções é arriscado.
+          </para>
+        </listitem>
+
+        <listitem>
+          <para><guilabel>Escolher contas a criar</guilabel> disponibiliza uma variedade de categorias contabilísticas 
+            que podem ser adicionadas ao livro. Existem dois painéis principais: à esquerda, a lista de categorias com
+            uma caixa de selecção ao lado de cada uma e, à direita, as contas que serão adicionadas pela categoria realçada.
+          </para>
+
+          <para>Acima da lista <guilabel>Categorias</guilabel>, encontrará dois botões de lista, um para o código do 
+            idioma e outro para o código do país. A selecção inicial baseia-se, mais uma vez, nas configurações regionais 
+            do seu computador. Pode seleccionar qualquer combinação de idioma e país que se adapte às suas necessidades.
+          </para>
+
+          <note>
+            <para>O sssistente <guilabel>Novo plano de contas</guilabel> não consegue processar selecções de mais de 
+              um país de cada vez; por isso, se precisar de seleccionar segmentos de várias configurações regionais — 
+              talvez porque as categorias da sua configuração regional principal se destinem a alargar as de outro país 
+              — terá de executar o assistente mais do que uma veza partir do menu <guimenu>Acções</guimenu>.
+            </para>
+          </note>
+        </listitem>
+
+        <listitem>
+          <para><guilabel>Configurar contas seleccionadas</guilabel> apresenta as contas das categorias que seleccionou
+            em <guilabel>Escolher contas a criar</guilabel> numa visualização em árvore não recolhível com quatro ou 
+            cinco colunas, dependendo de estar ou não a criar um novo livro:
+            <itemizedlist>
+              <listitem>
+                <para><guilabel>Nome da conta</guilabel>. Isto é editável; basta clicar-lhe ou seleccionar a linha e premir
+                  <keycap>Enter</keycap>.
+                </para>
+              </listitem>
+
+              <listitem>
+                <para><guilabel>Tipo</guilabel> Não editável. Este é o tipo da conta.
+                </para>
+              </listitem>
+
+              <listitem>
+                <para>Contas <guilabel>Marcador de posição</guilabel> (contas destinadas apenas a agrupar subcontas
+                  e que não realizam transacções por si próprias). Pode alterar esta configuração marcando a opção 
+                  para tornar a conta um marcador de posição, ou desmarcando-a para a tornar uma conta normal.
+                </para>
+              </listitem>
+
+              <listitem>
+                <para><guilabel>Saldos iniciais</guilabel> podem aceitar um valor para novas contas que não sejam 
+                de marcadoras de posição e que não sejam do tipo <emphasis>Capital próprio</emphasis>, uma vez que 
+                as contas existentes já têm saldos, as contas marcadoras de posição não podem ter transacções e o 
+                capital próprio não pode ter um saldo inicial.
+                  <note>
+                    <para>A entrada <guilabel>Saldo inicial</guilabel> só se torna evidente quando se clica nela. 
+                    É necessário sair da entrada clicando em qualquer lugar ou premindo a tecla <keycap>Tab</keycap> ou
+                      <keycap>Enter</keycap> antes de clicar em <guibutton>Seguinte</guibutton>, ou a sua entrada
+                      será descartada.
+                    </para>
+                  </note>
+                </para>
+              </listitem>
+
+              <listitem>
+                <para><guilabel>Utilizar existente</guilabel> só aparece quando se inicia o ssistente <guilabel>Novo
+                  plano de contas</guilabel> a partir do menu <guimenu>Acções</guimenu>. Indica se já existe uma 
+                  conta. Não é editável.
+                </para>
+              </listitem>
+            </itemizedlist>
+          </para>
+        </listitem>
+
+        <listitem>
+          <para><guilabel>Concluir a configuração da conta</guilabel> é o último ecrã e oferece-lhe uma última 
+            opção para cancelar o processo, voltar atrás para alterar algo, ou confirmar as suas escolhas. Se estiver a
+            criar um novo livro, o &app; mostrará um diálogo para seleccionar um motor e, ou um ficheiro
+            para o guardar, ou um servidor de base de dados, nome da base de dados e credenciais para criar uma base de dados MySQL ou
+            PostgreSQL, caso o GnuCash tenha sido compilado com essas funcionalidades e tenha as dependências necessárias
+            instaladas.
+          </para>
+
+          <warning>
+            <para>Se optar por cancelar, todas as selecções que tiver feito até este momento serão perdidas.
+            </para>
+          </warning>
+        </listitem>
+      </orderedlist>
+    </sect2>
+    
     <sect2 id="basics-tip2">
       <title>Dica do dia</title>
 
@@ -512,6 +817,29 @@
         abertos se clicar com o botao direito do rato num dos separadores, podendo em seguida clicar
         naquele que quiser.
       </para>
+      
+      <tip>
+        <orderedlist>
+          <listitem>
+            <simpara>Pode percorrer todos os separadores clicando nas setas situadas em cada extremidade da respectiva barra.
+            </simpara>
+          </listitem>
+
+          <listitem>
+            <simpara>Também pode alterar o alinhamento da barra de separadores modificando a <guilabel>posição 
+            dos separadores</guilabel> nas <ulink url="&url-docs-C;manual/set-prefs.html#prefs-window">preferências, 
+            separador Janelas</ulink>.
+            </simpara>
+          </listitem>
+
+          <listitem>
+            <simpara>É possível ver uma lista completa dos separadores clicando com o botão direito do rato na barra de 
+            separadores e seleccionar qualquer separador clicando-o.
+            </simpara>
+          </listitem>
+        </orderedlist>
+      </tip>
+      
     </sect2>
 
     <sect2 id="basics-options2">
@@ -541,12 +869,11 @@
 
       <para>Todos os itens de menu têm teclas de acesso, que estão marcadas por caracteres sublinhados nos
         nomes dos menus. Premir a tecla <keycap>Alt</keycap> e o carácter sublinhado no título do
-        menu mostra os itens desse menu. Em seguida, digite o carácter sublinhado do item que quer
-        usar para o activar. Por exemplo, digitar
+        menu mostra os itens desse menu. Por exemplo, premir
         <keycombo>
           <keycap>Alt</keycap> <keycap>F</keycap>
         </keycombo>
-        na janela principal abre o menu <guimenu>Ficheiro</guimenu>, se digitar em seguida
+        na janela principal abre o menu <guimenu>Ficheiro</guimenu>, se premir em seguida
         <keycombo>
           <keycap>Ctrl</keycap><keycap>S</keycap>
         </keycombo>
@@ -562,77 +889,241 @@
     </sect2>
   </sect1>
 
-  <sect1 id="basics-help1">
-    <title>Obter ajuda</title>
-
-    <para>O &app; oferece várias formas de ajuda. Já falámos da <link linkend="basics-tip2"> <guilabel>Dica
-      do dia</guilabel></link>, que lhe dá sugestões úteis no arranque da sessão do &app;. O
-      &app; também oferece um extenso manual de ajuda.
-    </para>
-
-    <sect2 id="basics-manual2">
-      <title>Manual de ajuda</title>
-
-      <para>Uma vez aberto o &app;, verá na <emphasis>barra de menus</emphasis> o título
-        <guilabel>Ajuda</guilabel>, onde encontra o item <guibutton>Conteúdos F1</guibutton>, que
-        abre o manual de ajuda. Este manual está organizado por tópicos, que podem ser expandidos
-        para ver os respectivos sub-tópicos.
-      </para>
-
-      <para>Os tópicos estão listados à esquerda. Para seleccionar um tópico ou sub-tópico, clique-o e
-        deverá ver o texto correspondente à direita. Use os botões
-        <guibutton>Anterior</guibutton> e <guibutton>Seguinte</guibutton> para navegar entre os
-        tópicos. Pode também imprimir um tópico através do menu <guibutton>Página</guibutton>.
-      </para>
-    </sect2>
-
-    <sect2 id="basics-web2">
-      <title>Acesso à Internet</title>
-
-      <para>A janela de <guilabel>ajuda do &appname;</guilabel> também actua como um navegador web simples,
-        para que possa abrir uma página web para obter informação adicional. Pode abrir qualquer
-        página nesta janela clicando em <guibutton>Abrir</guibutton> na <emphasis>barra de
-        ferramentas</emphasis> e digitando o URL. Use os botões <guibutton>Recuar</guibutton>,
-        <guibutton>Avançar</guibutton>, <guibutton>Recarregar</guibutton>,
-        <guibutton>Parar</guibutton>, e <guibutton>Imprimir</guibutton> tal como num navegador web
-        padrão.
-      </para>
-
-      <para>A <ulink url="&url-www;"><citetitle>página web do &appname;</citetitle></ulink> contém
-        informação útil sobre o programa e suas actualizações. Também contém ligações às
-        listas de correio do &app; para utilizadores e programadores e permite a procura nos
-        <ulink url="https://lists.gnucash.org/cgi-bin/namazu.cgi"><citetitle>arquivos das listas de
-        correio do &app;</citetitle></ulink> por discussões sobre um tópico específico. Se não
-        encontrar as respostas que procura, pode perguntar na
-        <ulink url="&url-mail-li;gnucash-user"> lista de utilizadores do &appname;</ulink> e alguém
-        nessa lista tentará responder-lhe.
-      </para>
-
-      <para>As <guilabel>FAQ do &appname;</guilabel> mais actualizadas estão localizadas em
-        <ulink url="&url-wiki-faq;">Faq do &appname;</ulink> e contêm respostas às perguntas mais
-        frequentes.
-      </para>
-    </sect2>
-
-    <sect2 id="basics-topic2">
-      <title>Procura por tópico</title>
-
-      <para>O manual também oferece uma função de procura. Para procurar um tópico em particular, clique no
-        campo da lupa, <guilabel>Procura</guilabel> no cimo da janela do manual e digite o que quer
-        procurar. Surge uma lista de escolhas logo abaixo, onde pode clicar para ir para o tópico
-        desejado.
-      </para>
-    </sect2>
-  </sect1>
-
   <sect1 id="basics-files1">
     <title>Armazenar os seus dados financeiros</title>
 
-    <para>O &app; é capaz de <link linkend="basics-store-data">armazenar</link> os seus dados financeiros em
-      ficheiros ou bases de dados <acronym>SQL</acronym> para que possam ser
-      <link linkend="basics-open-data">abertos</link> e modificados posteriormente. Mas primeiro tem
-      de <link linkend="basics-create-data">criar</link> um contentor para os seus dados.
-    </para>
+    <title>Visão geral</title>
+
+      <para>O &app; oferece vários formatos para gravar os seus dados financeiros. O formato de 
+        armazenamento de ficheiros predefinido é <acronym>XML</acronym>, enquanto o armazenamento em <acronym>SQL</acronym> 
+        está disponível nos formatos SQLite, MySQL e PostgreSQL. Os utilizadores podem escolher 
+        um formato para os novos ficheiros a partir de
+        <menuchoice>
+          <guimenu>Ficheiro</guimenu><guimenuitem>Gravar</guimenuitem>
+        </menuchoice>
+        a para ficheiros existentes em
+        <menuchoice>
+          <guimenu>Ficheiro</guimenu><guimenuitem>Gravar como...</guimenuitem>
+        </menuchoice>.
+      </para>
+
+      <para>O formato <acronym>XML</acronym> é um ficheiro de texto que, por predefinição, está comprimido, 
+        o que é uma preferência definida em
+        <menuchoice>
+          <guimenu>Editar</guimenu><guimenuitem>Preferências</guimenuitem>
+        </menuchoice>
+        <guilabel>Geral</guilabel> <guilabel>Comprimir ficheiros</guilabel>. O armazenamento SQLite também está
+        disponível e armazena os seus dados num único ficheiro no seu sistema, tal como o formato
+        <acronym>XML</acronym>. No entanto, internamente, um ficheiro SQLite é gerido como uma base de dados.
+        As opções de armazenamento MySQL e PostgreSQL requerem acesso a um servidor de bases de dados MySQL ou PostgreSQL
+        e a instalação de controladores de bases de dados adicionais no seu computador.
+      </para>
+
+      <tip>
+        <para>Os utilizadores podem alterar o formato a qualquer momento utilizando
+          <menuchoice>
+            <guimenu>Ficheiro</guimenu><guimenuitem>Gravar como...</guimenuitem>
+          </menuchoice>
+          . Isto criará uma cópia do ficheiro de dados no formato seleccionado.
+        </para>
+      </tip>
+    </sect2>
+
+    <sect2 id="basics-files-storage-comparison">
+      <title>Comparação de opções de armazenamento e recomendações</title>
+
+      <para>Cada formato de armazenamento tem vantagens e desvantagens que os utilizadores devem 
+        ter em conta em função das suas necessidades e capacidades. Consulte a
+        <link linkend='basics-storage-comparison-table' endterm="basics-storage-comparison-tbltitle"/>
+        abaixo para mais detalhes.
+      </para>
+
+      <para>O formato <acronym>XML</acronym> é o mais estável e consolidado e, por esse motivo, é
+        recomendado para a maioria dos utilizadores. O armazenamento <acronym>SQL</acronym> foi 
+        adicionado na versão 2.4 e tem-se tornado uma opção cada vez mais popular entre os 
+        utilizadores. O formato SQLite permite aos utilizadores tirar partido das vantagens do 
+        armazenamento <acronym>SQL</acronym> sem o trabalho adicional de instalar ou gerir um 
+        <acronym>DBMS</acronym> completo. O MySQL e o PostgreSQL requerem a instalação dos 
+        <acronym>DBMS</acronym> MySQL e PostgreSQL, respectivamente, e a sua manutenção deve ser 
+        feita apenas por administradores de bases de dados experientes.
+      </para>
+
+      <note>
+        <para>A utilização de um motor <acronym>SQL</acronym> para armazenamento leva muitos a 
+          pensar que o &app; implementou na íntegra as funcionalidades de um <acronym>DBMS</acronym>, 
+          incluindo a manipulação de dados por vários utilizadores e a manipulação incremental de dados.
+          No entanto, o &app; não implementa actualmente estas funcionalidades, embora seja um
+          objectivo a longo prazo da equipa de desenvolvimento.
+        </para>
+      </note>
+    </sect2>
+
+    <sect2 id="basics-storage-comparison-tblsect">
+      <title>Tabela comparativa de armazenamentos</title>
+
+      <table frame="topbot" id="basics-storage-comparison-table">
+        <title id="basics-storage-comparison-tbltitle">Comparação de armazenamentos</title>
+
+        <tgroup align="left" cols="5">
+          <colspec colname="c1item"></colspec>
+
+          <colspec colname="c2xml"></colspec>
+
+          <colspec colname="c3sqlite"></colspec>
+
+          <colspec colname="c4mysql"></colspec>
+
+          <colspec colname="c5pgsql"></colspec>
+
+          <thead>
+            <row>
+              <entry></entry>
+
+              <entry align="center">
+                XML
+              </entry>
+
+              <entry align="center">
+                SQLite
+              </entry>
+
+              <entry align="center">
+                MySQL
+              </entry>
+
+              <entry align="center">
+                PostgreSQL
+              </entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry namest="c1item">
+                Disponibilidade
+              </entry>
+
+              <entry align="center" namest="c2xml">
+                Interno
+              </entry>
+
+              <entry align="center" namest="c3sqlite" nameend="c5pgsql">
+                Depende dos pacotes
+                <footnote>
+                  <para>Os motores SQL dependem de pacotes adicionais. Estes estão incluídos nos pacotes de 
+                    aplicações do macOS e do Microsoft Windows e são instalados automaticamente pelo instalador 
+                    Flatpak do GnuCash. Os utilizadores de distribuições Linux poderão ter de instalar 
+                    explicitamente o pacote pretendido através do seu gestor de pacotes. Procure um pacote 
+                    com um nome semelhante a libdbd-sqlite3, libdbd-mysql ou libdbd-pgsql para o SQLite3, 
+                    o MySQL e o PostgreSQL, respectivamente.
+                  </para>
+                </footnote>
+              </entry>
+            </row>
+
+            <row>
+              <entry namest="c1item">
+                Extensão de ficheiro
+              </entry>
+
+              <entry align="center" namest="c2xml" nameend="c3sqlite">
+                gnucash
+              </entry>
+
+              <entry align="center" namest="c4mysql" nameend="c5pgsql">
+                N/D
+                <footnote>
+                  <para>Os MySQL e PostgreSQL põem os dados no seu próprio sistema de armazenamento.
+                  </para>
+                </footnote>
+              </entry>
+            </row>
+
+            <row>
+              <entry namest="c1item">
+                Programas adicionais
+              </entry>
+
+              <entry align="center" namest="c2xml" nameend="c3sqlite">
+                Nenhum
+              </entry>
+
+              <entry align="center" namest="c4mysql">
+                MySQL
+              </entry>
+
+              <entry align="center" namest="c5pgsql">
+                PostgreSQL
+              </entry>
+            </row>
+
+            <row>
+              <entry namest="c1item">
+                Perícias adicionais
+              </entry>
+
+              <entry align="center" namest="c2xml" nameend="c3sqlite">
+                Nenhuma
+              </entry>
+
+              <entry align="center" namest="c4mysql" nameend="c5pgsql">
+                Administrador de bases de dados
+              </entry>
+            </row>
+
+            <row>
+              <entry namest="c1item">
+                Compressão
+              </entry>
+
+              <entry align="center" namest="c2xml">
+                gzip
+              </entry>
+
+              <entry align="center" namest="c3sqlite" nameend="c5pgsql">
+                N/D
+              </entry>
+            </row>
+
+            <row>
+              <entry namest="c1item">
+                Gravação do ficheiro
+              </entry>
+
+              <entry align="center" namest="c2xml">
+                Com comando
+              </entry>
+
+              <entry align="center" namest="c3sqlite" nameend="c5pgsql">
+                Ao submeter
+              </entry>
+            </row>
+
+            <row>
+              <entry namest="c1item">
+                Multi-utilizador
+              </entry>
+
+              <entry align="center" namest="c2xml">
+                Não
+              </entry>
+
+              <entry align="center" namest="c3sqlite">
+                Não
+              </entry>
+
+              <entry align="center" namest="c4mysql">
+                Não
+              </entry>
+
+              <entry align="center" namest="c5pgsql">
+                Não
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect2>
 
     <sect2 id="basics-create-data">
       <title>Criar um ficheiro</title>
@@ -646,7 +1137,7 @@
             <menuchoice>
               <guimenu>Ficheiro</guimenu> <guimenuitem>Novo ficheiro</guimenuitem>
             </menuchoice>
-            . Inicia-se o assistente <guilabel>Nova hierarquia de contas</guilabel>.
+            . Inicia-se o assistente <guilabel>Novo plano de contas</guilabel>.
           </para>
 
           <note>
@@ -720,7 +1211,7 @@
                 </screenshot>
               </figure>
 
-              <para>Digite o nome escolhido no campo <guilabel>Nome</guilabel>. Não é necessário especificar uma
+              <para>Escreva o nome escolhido no campo <guilabel>Nome</guilabel>. Não é necessário especificar uma
                 extensão.O &app; adiciona a extensão <filename>.gnucash</filename> automaticamente
                 ao ficheiro.
               </para>
@@ -892,30 +1383,22 @@
       meufich.gnucash.7f0982.12093.LNK
       meufich.gnucash.LCK
     </programlisting>
+    
     <sect2 id="basics-backupxac2">
-      <title>Cópia de segurança (.gnucash)</title>
+      <title>Salvaguarda (.gnucash)</title>
 
       <para>Sempre que grava o seu ficheiro de dados, também é gravada uma salvaguarda com a extensão
         <filename>.AAAAMMDDHHMMSS.gnucash</filename>. Este ficheiro é uma cópia completa do seu
         ficheiro de dados anterior. E o formato do nome de ficheiro refere-se ao ano, mês, dia e
         hora da salvaguarda. Por exemplo, o ficheiro
-        <filename>meufich.gnucash.20160122180000.gnucash</filename> indica que esta é uma cópia de
-        segurança do ficheiro <filename>meufich</filename>, gravado a 22 de Janeiro de 2016,
-        exactamente às 18:00.
+        <filename>meufich.gnucash.20160122180000.gnucash</filename> indica que esta é uma salvaguarda 
+        do ficheiro <filename>meufich</filename>, gravado a 22 de Janeiro de 2016, exactamente às 18:00.
       </para>
 
       <para>Para restaurar uma salvaguarda, abra simplesmente o ficheiro
         <filename>AAAAMMDDHHMMSS.gnucash</filename> com a data a que quer voltar. Certifique-se de
         que grava esse ficheiro com um nome diferente.
       </para>
-
-      <note>
-        <para><filename>.AAAAMMDDHHMMSS.xac</filename> em vez da extensão actual
-          <filename>.AAAAMMDDHHMMSS.gnucash</filename>. Se actualizar da série 2.2 para a 2.4,
-          poderá acabar com as duas, <filename>.AAAAMMDDHHMMSS.xac</filename> e
-          <filename>.AAAAMMDDHHMMSS.gnucash</filename> salvaguardas na sua pasta.
-        </para>
-      </note>
     </sect2>
 
     <sect2 id="basics-backuplog2">
@@ -1143,7 +1626,11 @@
               </entry>
 
               <entry>
-                <filename class="directory">~/.gnucash</filename>
+                <filename class="directory">~/.gnucash</filename>&dir-data;</filename>
+                <footnote>
+                  <para>Até ao &app; 2.6.21 era <filename class="directory">&dir-old;</filename>
+                  </para>
+                </footnote>
               </entry>
             </row>
 
@@ -1267,7 +1754,7 @@
         </note>
 
         <figure pgwide="1">
-          <title>O assistente Nova hierarquia de contas</title>
+          <title>O assistente Novo plano de contas</title>
 
           <screenshot id="basics-NewAccountHierarchySetup">
             <mediaobject>
@@ -1282,7 +1769,7 @@
               </imageobject>
 
               <caption>
-                <para>Esta imagem mostra o primeiro ecrã do assistente <guilabel>Nova hierarquia de contas</guilabel>.
+                <para>Esta imagem mostra o primeiro ecrã do assistente <guilabel>Novo plano de contas</guilabel>.
                 </para>
               </caption>
             </mediaobject>
@@ -1295,50 +1782,18 @@
       </listitem>
 
       <listitem>
-        <para>No segundo ecrã, seleccione na lista pendente a moeda a usar em novas contas. Depois, clique em
-          <guibutton>Avançar</guibutton>.
+        <para>No segundo ecrã, defina as <guilabel>opções do novo livro</guilabel> nos diferentes separadores e, em seguida,
+          clique em <guibutton>Avançar</guibutton>.. Também pode actualizar estas opções mais tarde
+          utilizando
+          <menuchoice>
+            <guimenu>Ficheiro</guimenu><guimenuitem>Propriedades</guimenuitem>
+          </menuchoice>
+          . Para obter mais informações sobre estas opções, consulte o manual do &app;, capítulo Personalizar o GnuCash, 
+          Opções do livro.
         </para>
-
-        <note>
-          <para>A moeda que seleccionar aqui será associada a todas as <guilabel>contas</guilabel> criadas neste
-            assistente.
-          </para>
-        </note>
-
+        
         <figure pgwide="1">
-          <title>O assistente Nova hierarquia de contas - Moeda</title>
-
-          <screenshot id="basics-NewAccountHierarchySetup-currency">
-            <mediaobject>
-              <imageobject role="html">
-                <imagedata fileref="figures/basics_NewAccountHierarchySetup_currency.png"
-                           srccredit="Pedro Albuquerque" width="&img-w;"/>
-              </imageobject>
-
-              <imageobject role="fo">
-                <imagedata fileref="figures/basics_NewAccountHierarchySetup_currency.png"
-                           srccredit="Pedro Albuquerque"/>
-              </imageobject>
-
-              <caption>
-                <para>Esta imagem mostra o segundo ecrã do assistente <guilabel>Nova hierarquia de contas</guilabel>,
-                  onde selecciona a moeda.
-                </para>
-              </caption>
-            </mediaobject>
-          </screenshot>
-        </figure>
-      </listitem>
-
-      <listitem>
-        <para>No terceiro ecrã, encontra quatro separadores, <guilabel>Contas</guilabel>,
-          <guilabel>Orçamento</guilabel>, <guilabel>Negócios</guilabel> e
-          <guilabel>Contadores</guilabel>. Todas estas opções são descritas em detalhe no manual
-          do &app;. Quando terminar, clique em <guibutton>Avançar</guibutton>.
-        </para>
-
-        <figure pgwide="1">
-          <title>O assistente Nova hierarquia de contas - Opções do livro</title>
+          <title>O assistente Novo plano de contas - Opções do livro</title>
 
           <screenshot id="basics-NewAccountHierarchySetup-book-options">
             <mediaobject>
@@ -1353,8 +1808,44 @@
               </imageobject>
 
               <caption>
-                <para>Esta imagem mostra o terceiro ecrã do assistente <guilabel>Nova hierarquia de contas</guilabel>,
+                <para>Esta imagem mostra o terceiro ecrã do assistente <guilabel>Novo plano de contas</guilabel>,
                   onde selecciona as opções do novo livro.
+                </para>
+              </caption>
+            </mediaobject>
+          </screenshot>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para>No terceiro ecrã, escolha a moeda a usar nas novas contas a partir da lista pendente. Quando terminar, 
+          clique em <guibutton>Avançar</guibutton>.
+        </para>
+        
+        <note>
+          <para>A moeda que seleccionar aqui será associada a todas as <guilabel>contas</guilabel> criadas neste
+            assistente.
+          </para>
+        </note>
+        
+        <figure pgwide="1">
+          <title>O assistente Novo plano de contas - Moeda</title>
+
+          <screenshot id="basics-NewAccountHierarchySetup-currency">
+            <mediaobject>
+              <imageobject role="html">
+                <imagedata fileref="figures/basics_NewAccountHierarchySetup_currency.png"
+                           srccredit="Pedro Albuquerque" width="&img-w;"/>
+              </imageobject>
+
+              <imageobject role="fo">
+                <imagedata fileref="figures/basics_NewAccountHierarchySetup_currency.png"
+                           srccredit="Pedro Albuquerque"/>
+              </imageobject>
+
+              <caption>
+                <para>Esta imagem mostra o segundo ecrã do assistente <guilabel>Novo plano de contas</guilabel>,
+                  onde selecciona a moeda.
                 </para>
               </caption>
             </mediaobject>
@@ -1374,7 +1865,7 @@
         </note>
 
         <figure pgwide="1">
-          <title>O assistente Nova hierarquia de contas - Contas</title>
+          <title>O assistente Novo plano de contas - Contas</title>
 
           <screenshot id="basics-NewAccountHierarchySetup-Accounts">
             <mediaobject>
@@ -1389,7 +1880,7 @@
               </imageobject>
 
               <caption>
-                <para>Esta imagem mostra o quarto ecrã do assistente <guilabel>Nova hierarquia de contas</guilabel>, onde
+                <para>Esta imagem mostra o quarto ecrã do assistente <guilabel>Novo plano de contas</guilabel>, onde
                   escolhe as várias contas.
                 </para>
               </caption>
@@ -1407,7 +1898,7 @@
         </para>
 
         <figure pgwide="1">
-          <title>O assistente Nova hierarquia de contas - Configurar</title>
+          <title>O assistente Novo plano de contas - Configurar</title>
 
           <screenshot id="basics-NewAccountHierarchySetup-Setup.png">
             <mediaobject>
@@ -1422,7 +1913,7 @@
               </imageobject>
 
               <caption>
-                <para>Esta imagem mostra o quinto ecrã do assistente <guilabel>Nova hierarquia de contas</guilabel> .
+                <para>Esta imagem mostra o quinto ecrã do assistente <guilabel>Novo plano de contas</guilabel> .
                 </para>
               </caption>
             </mediaobject>
@@ -1436,7 +1927,7 @@
         </para>
 
         <figure pgwide="1">
-          <title>O assistente Nova hierarquia de contas - Final</title>
+          <title>O assistente Novo plano de contas - Final</title>
 
           <screenshot id="basics-NewAccountHierarchySetup-Finish">
             <mediaobject>
@@ -1451,7 +1942,7 @@
               </imageobject>
 
               <caption>
-                <para>Esta imagem mostra o último ecrã do assistente <guilabel>Nova hierarquia de contas</guilabel>.
+                <para>Esta imagem mostra o último ecrã do assistente <guilabel>Novo plano de contas</guilabel>.
                 </para>
               </caption>
             </mediaobject>
